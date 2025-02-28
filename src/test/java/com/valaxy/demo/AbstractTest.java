@@ -1,4 +1,4 @@
-package com.stalin.demo;
+package com.valaxy.demo;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
