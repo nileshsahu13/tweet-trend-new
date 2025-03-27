@@ -10,17 +10,17 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                sh 'mvn clean deploy -Dmaven.test.skip=true'
+                sh 'mvn clean package -Dmaven.test.skip=true'  // ✅ Ensures target/classes exists
             }
         }
 
-        stage("SonarQube analysis") {  // ✅ Now inside 'stages'
+        stage("SonarQube analysis") {
             environment {
                 scannerHome = tool 'nilesh-sonar-scanner'
             }
             steps {
-                withSonarQubeEnv('nilesh-sonarqube-server') { 
-                    sh "${scannerHome}/bin/sonar-scanner"
+                withSonarQubeEnv('nilesh-sonarqube-server') {
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.java.binaries=target/classes"  // ✅ Explicitly specify the path
                 }
             }
         }
