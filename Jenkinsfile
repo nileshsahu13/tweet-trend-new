@@ -20,7 +20,7 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv('nilesh-sonarqube-server') {
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.java.binaries=target/classes"  // ✅ Explicitly specify the path
+                    sh "${scannerHome}/bin/sonar-scanner "  // ✅ Explicitly specify the path
                 }
             }
         }
