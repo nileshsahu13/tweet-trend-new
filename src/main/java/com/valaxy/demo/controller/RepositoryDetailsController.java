@@ -1,4 +1,4 @@
-package com.‎valaxy.demo.controller;
+package com.stalin.demo.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -34,7 +34,7 @@ public class RepositoryDetailsController {
 	public String getRepos() throws IOException {
 		GitHub github = new GitHubBuilder().withPassword("valaxytech@gmail.com", "XXXXXXXX").build();
 		GHRepositorySearchBuilder builder = github.searchRepositories();
-		return "Greetings from Valaxy Technologies";
+		return "Greetings from Valaxy. Deployment from helm";
 	}
 
 	@GetMapping("/trends")
